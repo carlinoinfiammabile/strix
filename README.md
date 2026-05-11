@@ -6,6 +6,27 @@
 
 <div align="center">
 
+### Notes on long-running scan stability
+
+For complex targets and multi-step workflows, scan quality may depend heavily on model context capacity, retry behavior, and how intermediate reasoning is compressed or summarized.
+
+In some cases, smaller-context models may show less stable progression during long scans, including premature completion, inconsistent phase transitions, or reduced continuity across extended sessions.
+
+#### Practical guidance
+
+- Prefer models with stronger long-context performance for large targets.
+- Re-test the same target with the same configuration before comparing models.
+- Review retry, iteration, and memory/compression-related settings when scan behavior appears inconsistent.
+- If the UI workflow behaves differently from terminal execution, compare both paths under the same model and prompt conditions.
+
+#### Troubleshooting checklist
+
+1. Re-run the same target with identical configuration.
+2. Compare behavior across different models and context-window sizes.
+3. Check whether long scans terminate because of retry limits, iteration limits, or context degradation.
+4. Verify whether scan continuity changes after long reasoning chains or post-processing steps.
+
+
 # Strix
 
 ### Open-source AI hackers to find and fix your app’s vulnerabilities.
